@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <NavBar />
-    <router-view/>
+  <div class="bg-dark bg-dark h-100 min-vh-100">
+	<header>
+		<NavBar />
+	</header>
+	<main role="main" class="container">
+		<router-view/>
+	</main>
   </div>
 </template>
 
