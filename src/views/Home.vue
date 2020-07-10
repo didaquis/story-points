@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Title text="Welcome to Your Vue.js App"/>
+		<Title text="Selecciona los valores"/>
 		<EstimationForm />
 		<EstimationResultBox />
 	</div>
