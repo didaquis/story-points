@@ -3,15 +3,13 @@
 	<header>
 		<NavBar />
 	</header>
-	<main role="main" class="container">
+	<main role="main" class="container text-white">
 		<router-view/>
 	</main>
   </div>
 </template>
 
-
 <script>
-// @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
@@ -22,7 +20,6 @@ export default {
 	}
 }
 </script>
-
 
 <style>
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css'

@@ -1,17 +1,22 @@
 <template>
 	<div>
-		<HelloWorld msg="Welcome to Your Vue.js App"/>
+		<Title text="Welcome to Your Vue.js App"/>
+		<EstimationForm />
+		<EstimationResultBox />
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Title from '@/components/Title.vue'
+import EstimationForm from '@/components/EstimationForm.vue'
+import EstimationResultBox from '@/components/EstimationResultBox.vue'
 
 export default {
 	name: 'Home',
 	components: {
-		HelloWorld
+		Title,
+		EstimationForm,
+		EstimationResultBox,
 	}
 }
 </script>
