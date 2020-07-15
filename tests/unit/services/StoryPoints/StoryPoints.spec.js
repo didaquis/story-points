@@ -1,18 +1,14 @@
 
 import StoryPointsService from '@/services/StoryPoints/StoryPointsService'
 
-import { rules } from '../../fixtures/services/StoryPoints/rules'
-
 describe('StoryPointsService', () => {
 
 	let service
 	let validValues
 	let validParameters
 
-	const fakeRules = rules
-
 	beforeEach(() => {
-		service = new StoryPointsService(fakeRules)
+		service = new StoryPointsService()
 		validValues = [0, 0.5, 1, 2, 3, 5, 8, 13, 20]
 		validParameters = ['very-low', 'low', 'medium', 'high', 'very-high']
 	})

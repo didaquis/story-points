@@ -21,82 +21,85 @@ class StoryPointsService {
 	*/
 
 
-
-
-	constructor (rules) {
-		this.rules = rules
-		this.validValues = ['very-low', 'low', 'medium', 'high', 'very-high']
+	constructor () {
+		this.level = {
+			'very-low': 'very-low',
+			'low': 'low',
+			'medium': 'medium',
+			'high': 'high',
+			'very-high': 'very-high'
+		}
 	}
 
 	calculate (uncertainty, volume) {
-		if (!this.validValues.includes(uncertainty) || !this.validValues.includes(volume)) {
+		if (!Object.values(this.level).includes(uncertainty) || !Object.values(this.level).includes(volume)) {
 			throw 'Unknow values'
 		}
 
 		switch (uncertainty) {
-			case this.validValues[0]:
+			case this.level['very-low']:
 				switch (volume) {
-					case this.validValues[0]:
+					case this.level['very-low']:
 						return 0
-					case this.validValues[1]:
+					case this.level['low']:
 						return 0.5
-					case this.validValues[2]:
+					case this.level['medium']:
 						return 2
-					case this.validValues[3]:
+					case this.level['high']:
 						return 5
-					case this.validValues[4]:
+					case this.level['very-high']:
 						return 8
 				}
-			case this.validValues[1]:
+			case this.level['low']:
 				switch (volume) {
-					case this.validValues[0]:
+					case this.level['very-low']:
 						return 0.5
-					case this.validValues[1]:
+					case this.level['low']:
 						return 1
-					case this.validValues[2]:
+					case this.level['medium']:
 						return 3
-					case this.validValues[3]:
+					case this.level['high']:
 						return 5
-					case this.validValues[4]:
+					case this.level['very-high']:
 						return 8
 				}
-			case this.validValues[2]:
+			case this.level['medium']:
 				switch (volume) {
-					case this.validValues[0]:
+					case this.level['very-low']:
 						return 2
-					case this.validValues[1]:
+					case this.level['low']:
 						return 3
-					case this.validValues[2]:
+					case this.level['medium']:
 						return 5
-					case this.validValues[3]:
+					case this.level['high']:
 						return 8
-					case this.validValues[4]:
+					case this.level['very-high']:
 						return 8
 				}
-			case this.validValues[3]:
+			case this.level['high']:
 				switch (volume) {
-					case this.validValues[0]:
+					case this.level['very-low']:
 						return 5
-					case this.validValues[1]:
+					case this.level['low']:
 						return 5
-					case this.validValues[2]:
+					case this.level['medium']:
 						return 8
-					case this.validValues[3]:
+					case this.level['high']:
 						return 13
-					case this.validValues[4]:
+					case this.level['very-high']:
 						return 13
 				}
-			case this.validValues[4]:
+			case this.level['very-high']:
 				switch (volume) {
-					case this.validValues[0]:
+					case this.level['very-low']:
 						return 8
-					case this.validValues[1]:
+					case this.level['low']:
 						return 8
-					case this.validValues[2]:
+					case this.level['medium']:
 						return 8
-					case this.validValues[3]:
+					case this.level['high']:
 						return 13
-					case this.validValues[4]:
+					case this.level['very-high']:
 						return 20
 				}
 		}
