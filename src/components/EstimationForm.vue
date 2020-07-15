@@ -54,10 +54,11 @@ export default {
 			this.volumeOfWorkValue = null
 		},
 		updateEstimation: function() {
+			let estimation = ''
 			if (this.uncertaintyValue && this.volumeOfWorkValue) {
-				const result = StoryPointsService.calculate(this.uncertaintyValue, this.volumeOfWorkValue)
-				this.emitTheEstimation(result)
+				estimation = StoryPointsService.calculate(this.uncertaintyValue, this.volumeOfWorkValue)
 			}
+			this.emitTheEstimation(estimation)
 		},
 		emitTheEstimation: function(value) {
 			this.$emit('result-of-estimation', value)
