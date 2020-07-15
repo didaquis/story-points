@@ -1,5 +1,7 @@
 # story-points
 
+Deployed at: https://story-points.netlify.app
+
 ## Project setup
 ```
 npm install
