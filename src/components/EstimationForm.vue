@@ -60,7 +60,7 @@ export default {
 			}
 		},
 		emitTheEstimation: function(value) {
-			console.log('emitTheEstimation value:', value)
+			this.$emit('result-of-estimation', value)
 		},
 	}
 }

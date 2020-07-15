@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Title text="Selecciona los valores"/>
-		<EstimationForm />
+		<EstimationForm @result-of-estimation="handleEstimation" />
 		<EstimationResultBox :estimation-value="estimationResult" />
 	</div>
 </template>
@@ -20,7 +20,12 @@ export default {
 	},
 	data() {
 		return {
-			estimationResult: 2
+			estimationResult: ''
+		}
+	},
+	methods: {
+		handleEstimation: function(value) {
+			this.estimationResult = value
 		}
 	}
 }
