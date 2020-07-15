@@ -7,12 +7,14 @@ describe('StoryPointsService', () => {
 
 	let service
 	let validValues
+	let validParameters
 
 	const fakeRules = rules
 
 	beforeEach(() => {
 		service = new StoryPointsService(fakeRules)
 		validValues = [0, 0.5, 1, 2, 3, 5, 8, 13, 20]
+		validParameters = ['very-low', 'low', 'medium', 'high', 'very-high']
 	})
 
 	it('should be defined', () => {
@@ -42,49 +44,54 @@ describe('StoryPointsService', () => {
 			}).toThrow()
 		})
 
-		it('should return 0 if receive "very-low" and "very-low" as parameters', () => {
-			const result = service.calculate('very-low', 'very-low')
-			expect (result).toBe(0)
+		it('should return valid value if receive valid param', () => {
+			validParameters.forEach((arg) => {
+				for (let index = 0; index < validParameters.length; index++) {
+					const result = service.calculate(arg, validParameters[index])
+					expect(validValues.includes(result)).toBe(true)
+				}
+			})
 		})
 
-		it('should return 0.5 if receive "low" and "very-low" as parameters', () => {
-			const result = service.calculate('low', 'very-low')
-			expect (result).toBe(0.5)
+		it('should retun valid estimation if receive "very-low" as first param', () => {
+			expect(service.calculate('very-low', 'very-low')).toBe(0)
+			expect(service.calculate('very-low', 'low')).toBe(0.5)
+			expect(service.calculate('very-low', 'medium')).toBe(2)
+			expect(service.calculate('very-low', 'high')).toBe(5)
+			expect(service.calculate('very-low', 'very-high')).toBe(8)
 		})
 
-		it('should return 2 if receive "medium" and "very-low" as parameters', () => {
-			const result = service.calculate('medium', 'very-low')
-			expect (result).toBe(2)
+		it('should retun valid estimation if receive "low" as first param', () => {
+			expect(service.calculate('low', 'very-low')).toBe(0.5)
+			expect(service.calculate('low', 'low')).toBe(1)
+			expect(service.calculate('low', 'medium')).toBe(3)
+			expect(service.calculate('low', 'high')).toBe(5)
+			expect(service.calculate('low', 'very-high')).toBe(8)
 		})
 
-		it('should return 5 if receive "high" and "very-low" as parameters', () => {
-			const result = service.calculate('high', 'very-low')
-			expect (result).toBe(5)
+		it('should retun valid estimation if receive "medium" as first param', () => {
+			expect(service.calculate('medium', 'very-low')).toBe(2)
+			expect(service.calculate('medium', 'low')).toBe(3)
+			expect(service.calculate('medium', 'medium')).toBe(5)
+			expect(service.calculate('medium', 'high')).toBe(8)
+			expect(service.calculate('medium', 'very-high')).toBe(8)
 		})
 
-		it('should return 8 if receive "very-high" and "very-low" as parameters', () => {
-			const result = service.calculate('very-high', 'very-low')
-			expect (result).toBe(8)
+		it('should retun valid estimation if receive "high" as first param', () => {
+			expect(service.calculate('high', 'very-low')).toBe(5)
+			expect(service.calculate('high', 'low')).toBe(5)
+			expect(service.calculate('high', 'medium')).toBe(8)
+			expect(service.calculate('high', 'high')).toBe(13)
+			expect(service.calculate('high', 'very-high')).toBe(13)
 		})
 
-		it('should return 0.5 if receive "very-low" and "low" as parameters', () => {
-			const result = service.calculate('very-low', 'low')
-			expect (result).toBe(0.5)
+		it('should retun valid estimation if receive "very-high" as first param', () => {
+			expect(service.calculate('very-high', 'very-low')).toBe(8)
+			expect(service.calculate('very-high', 'low')).toBe(8)
+			expect(service.calculate('very-high', 'medium')).toBe(8)
+			expect(service.calculate('very-high', 'high')).toBe(13)
+			expect(service.calculate('very-high', 'very-high')).toBe(20)
 		})
 
-		it('should return 2 if receive "very-low" and "medium" as parameters', () => {
-			const result = service.calculate('very-low', 'medium')
-			expect (result).toBe(2)
-		})
-
-		it('should return 5 if receive "very-low" and "high" as parameters', () => {
-			const result = service.calculate('very-low', 'high')
-			expect (result).toBe(5)
-		})
-
-		it('should return 8 if receive "very-low" and "very-high" as parameters', () => {
-			const result = service.calculate('very-low', 'very-high')
-			expect (result).toBe(8)
-		})
 	})
 })
