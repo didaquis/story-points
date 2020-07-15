@@ -1,4 +1,1 @@
-export const rules = {
-	foo: 'foo',
-	bar: 'bar',
-}
+export const rules = [ [], [], [], [], [] ]
