@@ -2,7 +2,7 @@
 	<div>
 		<Title text="Selecciona los valores"/>
 		<EstimationForm />
-		<EstimationResultBox />
+		<EstimationResultBox :estimation-value="estimationResult" />
 	</div>
 </template>
 
@@ -17,6 +17,11 @@ export default {
 		Title,
 		EstimationForm,
 		EstimationResultBox,
+	},
+	data() {
+		return {
+			estimationResult: 2
+		}
 	}
 }
 </script>
