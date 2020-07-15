@@ -12,16 +12,18 @@ class StoryPointsService {
 
 		switch (x) {
 			case this.validValues[0]:
-
-				if (y === 'low') {
-					return 0.5
+				switch (y) {
+					case this.validValues[0]:
+						return 0
+					case this.validValues[1]:
+						return 0.5
+					case this.validValues[2]:
+						return 2
+					case this.validValues[3]:
+						return 5
+					case this.validValues[4]:
+						return 8
 				}
-
-				if (y === 'medium') {
-					return 2
-				}
-
-				return 0
 			case this.validValues[1]:
 				return 0.5
 			case this.validValues[2]:

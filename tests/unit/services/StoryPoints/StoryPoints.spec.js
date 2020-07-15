@@ -76,5 +76,15 @@ describe('StoryPointsService', () => {
 			const result = service.calculate('very-low', 'medium')
 			expect (result).toBe(2)
 		})
+
+		it('should return 5 if receive "very-low" and "high" as parameters', () => {
+			const result = service.calculate('very-low', 'high')
+			expect (result).toBe(5)
+		})
+
+		it('should return 8 if receive "very-low" and "very-high" as parameters', () => {
+			const result = service.calculate('very-low', 'very-high')
+			expect (result).toBe(8)
+		})
 	})
 })
