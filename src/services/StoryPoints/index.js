@@ -1,3 +1,3 @@
-import StoryPointsService from './StoryPoints'
+import StoryPointsService from './StoryPointsService'
 
 export default new StoryPointsService()
