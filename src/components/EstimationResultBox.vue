@@ -18,9 +18,9 @@ export default {
 			default: ''
 		}
 	},
-	data() {
-		return {
-			isBigEstimation: this.estimationValue >= 8
+	computed: {
+		isBigEstimation: function () {
+			return this.estimationValue >= 8
 		}
 	}
 }
