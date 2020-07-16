@@ -14,9 +14,21 @@ import NavBar from '@/components/NavBar.vue'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
 export default {
-	name: 'Home',
+	name: 'App',
 	components: {
 		NavBar
+	},
+	metaInfo() {
+		return {
+			title: 'Story Points',
+			htmlAttrs: {
+				lang: 'es'
+			},
+			meta: [
+				{ name: 'description', content:  'Story Points es una aplicación que te permite realizar estimaciones'},
+				{name: 'robots', content: 'index,follow'}
+			]
+		}
 	}
 }
 </script>
