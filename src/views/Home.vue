@@ -1,9 +1,9 @@
 <template>
-	<div class="col-lg-8 offset-lg-2">
+	<section class="col-lg-8 offset-lg-2">
 		<Title text="Selecciona los valores"/>
 		<EstimationForm @result-of-estimation="handleEstimation" />
 		<EstimationResultBox :estimation-value="estimationResult" />
-	</div>
+	</section>
 </template>
 
 <script>

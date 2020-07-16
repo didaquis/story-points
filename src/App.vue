@@ -3,7 +3,7 @@
 	<header>
 		<NavBar />
 	</header>
-	<main role="main" class="container text-white" data-cy="main-content">
+	<main role="main" class="container text-white pb-5" data-cy="main-content">
 		<router-view/>
 	</main>
   </div>

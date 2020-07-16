@@ -1,5 +1,5 @@
 <template>
-	<div class="pb-2">
+	<section>
 		<Title text="Información"/>
 		<p class="lead">Story Points es una aplicación que te permite realizar estimaciones</p>
 		<h3>¿Por qué se ha creado esta aplicación?</h3>
@@ -9,7 +9,7 @@
 		<br>
 		Si en algún momento, consideras que no estás capacitado para determinar el valor de incertidumbre y/o volumen, pulsa el botón con el símbolo de interrogación para indicar que no puedes estimar esa tarea.</p>
 		<Credits />
-	</div>
+	</section>
 </template>
 
 <script>
