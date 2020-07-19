@@ -1,6 +1,6 @@
 {
   "name": "story-points",
-  "version": "0.3.8",
+  "version": "0.4.9",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
