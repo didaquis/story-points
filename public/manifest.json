@@ -2,12 +2,12 @@
 	"short_name": "Story points",
 	"name": "Story points",
 	"lang": "es",
+	"dir": "ltr",
 	"description": "Una aplicación para realizar estimaciones",
 	"start_url": ".",
 	"background_color": "#353a40",
 	"theme_color": "#ffffff",
-	"dir": "ltr",
-	"display": "standalone",
+	"display": "browser",
 	"orientation": "any",
 	"icons": [
 		{
@@ -58,6 +58,5 @@
 			"sizes": "512x512",
 			"purpose": "any maskable"
 		}
-	],
-	"prefer_related_applications": false
+	]
 }
