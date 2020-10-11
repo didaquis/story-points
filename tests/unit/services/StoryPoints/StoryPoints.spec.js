@@ -17,7 +17,7 @@ describe('StoryPointsService', () => {
 		expect(service).toBeDefined()
 	})
 
-	it('should contain a metho called calculate', () => {
+	it('should contain a method called calculate', () => {
 		expect(service.calculate).toBeDefined()
 	})
 
