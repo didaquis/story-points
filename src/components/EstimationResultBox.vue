@@ -20,7 +20,8 @@ export default {
 	},
 	computed: {
 		isBigEstimation: function () {
-			return this.estimationValue >= 8
+			const bigNumberOfStoryPoints = 8
+			return this.estimationValue >= bigNumberOfStoryPoints
 		}
 	}
 }
