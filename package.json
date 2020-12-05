@@ -1,6 +1,6 @@
 {
   "name": "story-points",
-  "version": "0.4.16",
+  "version": "0.4.17",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -27,9 +27,9 @@
     "@vue/cli-service": "4.5.9",
     "@vue/test-utils": "1.1.1",
     "babel-eslint": "10.1.0",
-    "eslint": "7.14.0",
-    "eslint-plugin-vue": "7.1.0",
-    "husky": "4.3.0",
+    "eslint": "7.15.0",
+    "eslint-plugin-vue": "7.2.0",
+    "husky": "4.3.4",
     "vue-template-compiler": "2.6.12"
   },
   "husky": {
