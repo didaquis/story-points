@@ -1,13 +1,9 @@
-import Vue from 'vue'
-import VueMeta from 'vue-meta'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-Vue.config.productionTip = false
+const app = createApp(App)
 
-Vue.use(VueMeta)
+app.use(router)
 
-new Vue({
-	router,
-	render: h => h(App)
-}).$mount('#app')
+app.mount('#app')

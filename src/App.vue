@@ -1,12 +1,17 @@
 <template>
-  <div class="bg-dark bg-dark h-100 min-vh-100">
-	<header>
-		<NavBar />
-	</header>
-	<main role="main" class="container text-white pb-5" data-cy="main-content">
-		<router-view/>
-	</main>
-  </div>
+	<div class="bg-dark bg-dark h-100 min-vh-100">
+		<teleport to="head">
+			<title>Story Points</title>
+			<meta name="description" content="Story Points es una aplicación que te permite realizar estimaciones">
+			<meta name="robots" content="index,follow">
+		</teleport>
+		<header>
+			<NavBar />
+		</header>
+		<main role="main" class="container text-white pb-5" data-cy="main-content">
+			<router-view />
+		</main>
+	</div>
 </template>
 
 <script>
@@ -18,18 +23,6 @@ export default {
 	components: {
 		NavBar
 	},
-	metaInfo() {
-		return {
-			title: 'Story Points',
-			htmlAttrs: {
-				lang: 'es'
-			},
-			meta: [
-				{ name: 'description', content:  'Story Points es una aplicación que te permite realizar estimaciones'},
-				{name: 'robots', content: 'index,follow'}
-			]
-		}
-	}
 }
 </script>
 
