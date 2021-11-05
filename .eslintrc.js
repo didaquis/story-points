@@ -25,8 +25,9 @@ module.exports = {
 		'indent': [
 			'error',
 			'tab',
-			{'SwitchCase': 1}
-		]
+			{ 'SwitchCase': 1 }
+		],
+		'object-curly-spacing': ['error', 'always']
 	},
 	overrides: [
 		{
