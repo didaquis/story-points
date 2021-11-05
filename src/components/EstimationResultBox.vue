@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+
 export default {
 	name: 'EstimationResultBox',
 	props: {
@@ -18,10 +20,14 @@ export default {
 			default: ''
 		}
 	},
-	computed: {
-		isBigEstimation: function () {
-			const bigNumberOfStoryPoints = 8
-			return this.estimationValue >= bigNumberOfStoryPoints
+	setup (props) {
+		const isBigEstimation = computed(() => {
+			const threshold = 8
+			return props.estimationValue >= threshold
+		})
+
+		return {
+			isBigEstimation
 		}
 	}
 }

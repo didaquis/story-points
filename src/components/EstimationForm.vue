@@ -28,41 +28,53 @@
 
 <script>
 import StoryPointsService from '@/services/StoryPoints'
+import { ref } from 'vue'
 
 export default {
-	data() {
-		return {
-			uncertaintyValue: null,
-			volumeOfWorkValue: null,
+	name: 'EstimationForm',
+	setup(_, { emit }) {
+		const uncertaintyValue = ref(null)
+		const volumeOfWorkValue = ref(null)
+
+		const resetValues = () => {
+			uncertaintyValue.value = null
+			volumeOfWorkValue.value = null
 		}
-	},
-	methods: {
-		onChangeUncertaintySelect: function(event) {
-			this.uncertaintyValue = event.target.value || null
-			this.updateEstimation()
-		},
-		onChangeVolumeOfWorkSelect: function(event) {
-			this.volumeOfWorkValue = event.target.value || null
-			this.updateEstimation()
-		},
-		onClickQuestionMarkButton: function() {
-			this.emitTheEstimation('?')
-			this.resetValues()
-		},
-		resetValues: function() {
-			this.uncertaintyValue = null
-			this.volumeOfWorkValue = null
-		},
-		updateEstimation: function() {
+
+		const emitTheEstimation = (value) => {
+			emit('result-of-estimation', value)
+		}
+
+		const updateEstimation = () => {
 			let estimation = ''
-			if (this.uncertaintyValue && this.volumeOfWorkValue) {
-				estimation = StoryPointsService.calculate(this.uncertaintyValue, this.volumeOfWorkValue)
+			if (uncertaintyValue.value && volumeOfWorkValue.value) {
+				estimation = StoryPointsService.calculate(uncertaintyValue.value, volumeOfWorkValue.value)
 			}
-			this.emitTheEstimation(estimation)
-		},
-		emitTheEstimation: function(value) {
-			this.$emit('result-of-estimation', value)
-		},
+			emitTheEstimation(estimation)
+		}
+
+		const onChangeUncertaintySelect = (event) => {
+			uncertaintyValue.value = event.target.value || null
+			updateEstimation()
+		}
+
+		const onChangeVolumeOfWorkSelect = (event) => {
+			volumeOfWorkValue.value = event.target.value || null
+			updateEstimation()
+		}
+
+		const onClickQuestionMarkButton = () => {
+			emitTheEstimation('?')
+			resetValues()
+		}
+
+		return {
+			uncertaintyValue,
+			volumeOfWorkValue,
+			onClickQuestionMarkButton,
+			onChangeUncertaintySelect,
+			onChangeVolumeOfWorkSelect,
+		}
 	}
 }
 </script>

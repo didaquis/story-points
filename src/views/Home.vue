@@ -10,6 +10,7 @@
 import Title from '@/components/Title.vue'
 import EstimationForm from '@/components/EstimationForm.vue'
 import EstimationResultBox from '@/components/EstimationResultBox.vue'
+import { ref } from 'vue'
 
 export default {
 	name: 'Home',
@@ -18,14 +19,16 @@ export default {
 		EstimationForm,
 		EstimationResultBox,
 	},
-	data() {
-		return {
-			estimationResult: ''
+	setup () {
+		const estimationResult = ref('')
+
+		const handleEstimation = (value) => {
+			estimationResult.value = value
 		}
-	},
-	methods: {
-		handleEstimation: function(value) {
-			this.estimationResult = value
+
+		return {
+			estimationResult,
+			handleEstimation
 		}
 	}
 }
