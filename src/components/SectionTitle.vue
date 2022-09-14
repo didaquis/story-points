@@ -4,7 +4,7 @@
 
 <script>
 export default {
-	name: 'Title',
+	name: 'SectionTitle',
 	props: {
 		text: {
 			type: String,
